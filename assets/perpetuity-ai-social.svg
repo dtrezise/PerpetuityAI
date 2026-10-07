@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="0.76" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#83f5b8" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#07110f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#07110f"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <path d="M72 84h1056M72 546h1056" stroke="#f0efe8" stroke-opacity=".18"/>
+  <circle cx="1016" cy="165" r="65" fill="none" stroke="#83f5b8" stroke-opacity=".35"/>
+  <circle cx="1016" cy="165" r="42" fill="#83f5b8"/>
+  <text x="1016" y="184" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="55" fill="#07110f">P</text>
+  <text x="72" y="132" font-family="Arial,sans-serif" font-weight="700" font-size="26" fill="#f0efe8">PERPETUITY <tspan fill="#83f5b8">AI</tspan></text>
+  <text x="72" y="260" font-family="Georgia,serif" font-size="69" fill="#f0efe8">Authority that travels</text>
+  <text x="72" y="339" font-family="Georgia,serif" font-size="69" font-style="italic" fill="#83f5b8">with the asset.</text>
+  <text x="72" y="428" font-family="Arial,sans-serif" font-size="24" fill="#f0efe8" fill-opacity=".67">Digital-replica authorization operations</text>
+  <text x="72" y="510" font-family="monospace" font-size="15" letter-spacing="2" fill="#83f5b8">PRIVATE PILOT / 2026</text>
+</svg>

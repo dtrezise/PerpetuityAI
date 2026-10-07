@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dtrezise.github.io/PerpetuityAI/sitemap.xml

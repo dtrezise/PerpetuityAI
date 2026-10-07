@@ -1,0 +1,11 @@
+metric_id,metric,definition,baseline_value,target_range,outcome_value,unit,data_source,owner,confidence,notes
+M-001,elapsed_cycle_time,Calendar time from complete request to accountable decision,,,,hours,,,,
+M-002,active_review_time,Total participant labor spent reviewing and clarifying the request,,,,hours,,,,
+M-003,clarification_loops,Count of returns for missing or ambiguous information,,,,count,,,,
+M-004,missing_required_fields,Required packet fields absent at first review,,,,count,,,,
+M-005,material_conflicts,Conflicting authority terms or instructions requiring escalation,,,,count,,,,
+M-006,vendor_rework,Corrective work caused by incomplete or changed handoff instructions,,,,hours,,,,
+M-007,evidence_completeness,Required closeout evidence present and reviewable,,,,percent,,,,
+M-008,stakeholder_confidence,Consistent post-workflow confidence rating,,,,1-5 scale,,,,
+M-009,delivery_labor,Perpetuity and specialist time required to operate the workflow,,,,hours,,,,
+M-010,repeat_commitment,Sponsor commits budget and transaction for another use,,,,boolean,,,,

@@ -1,0 +1,16 @@
+{
+  "name": "Perpetuity AI",
+  "short_name": "Perpetuity AI",
+  "description": "Digital-replica authorization operations.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07110f",
+  "theme_color": "#07110f",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

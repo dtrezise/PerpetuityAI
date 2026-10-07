@@ -1,0 +1,7 @@
+risk_id,risk,category,likelihood,impact,owner,preventive_control,trigger,response,status,last_reviewed
+R-001,Authority claim is incomplete or conflicting,legal and workflow,,,pilot sponsor,Human review and conflict flag,,Pause decision and obtain qualified review,open,
+R-002,Sensitive data enters an unapproved tool,privacy and security,,,security owner,Approved data inventory and tools,,Contain exposure and follow incident path,open,
+R-003,Vendor instructions exceed approved scope,workflow,,,production owner,Versioned least-privilege instructions,,Suspend handoff and route exception,open,
+R-004,Material context changes after approval,workflow and legal,,,approver,Change detection and re-review requirement,,Return packet to review,open,
+R-005,Retention or disposition is not confirmed,privacy and records,,,records owner,Named closeout requirement,,Escalate and document exception,open,
+R-006,Model-assisted output is treated as a final decision,AI governance,,,reviewer,Human approval and source-reference requirement,,Reject automated decision and review evidence,open,

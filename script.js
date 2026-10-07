@@ -3,6 +3,8 @@ const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");
 const revealItems = document.querySelectorAll("[data-reveal]");
 
+document.documentElement.classList.add("reveal-ready");
+
 const updateHeader = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
 };
@@ -21,6 +23,18 @@ menuButton?.addEventListener("click", () => {
 
 navigation?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  closeMenu();
+  menuButton?.focus();
+});
+
+document.addEventListener("click", (event) => {
+  if (!navigation?.classList.contains("is-open")) return;
+  if (navigation.contains(event.target) || menuButton?.contains(event.target)) return;
+  closeMenu();
 });
 
 window.addEventListener("scroll", updateHeader, { passive: true });

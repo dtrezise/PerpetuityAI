@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:perpetuity-ai:authorization-packet:0.2",
+  "title": "Perpetuity AI pilot authorization packet",
+  "description": "A structured decision and handoff record for one project-specific digital-replica use. This schema does not establish legal sufficiency or universal clearance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "packetId",
+    "status",
+    "project",
+    "requester",
+    "participantReference",
+    "authorityBasis",
+    "asset",
+    "requestedUse",
+    "agreementReferences",
+    "approvals",
+    "vendors",
+    "retention",
+    "events",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "0.2" },
+    "packetId": { "type": "string", "minLength": 1 },
+    "status": {
+      "enum": [
+        "draft",
+        "evidence_required",
+        "under_review",
+        "changes_requested",
+        "approved_with_conditions",
+        "rejected",
+        "in_production",
+        "exception_review",
+        "closeout_pending",
+        "closed"
+      ]
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["projectId", "name", "accountableEntity", "sponsorRole"],
+      "properties": {
+        "projectId": { "type": "string" },
+        "name": { "type": "string" },
+        "accountableEntity": { "type": "string" },
+        "sponsorRole": { "type": "string" }
+      }
+    },
+    "requester": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["organization", "role", "reference"],
+      "properties": {
+        "organization": { "type": "string" },
+        "role": { "type": "string" },
+        "reference": { "type": "string", "description": "Approved internal identifier rather than unnecessary personal data." }
+      }
+    },
+    "participantReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reference", "representedBy"],
+      "properties": {
+        "reference": { "type": "string" },
+        "representedBy": { "type": "string" },
+        "conflictFlag": { "type": "boolean", "default": false }
+      }
+    },
+    "authorityBasis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basisType", "issuer", "reference", "reviewStatus", "reviewerRole"],
+      "properties": {
+        "basisType": { "enum": ["contract", "collective_agreement", "statute", "court_order", "agency_or_estate_authority", "other"] },
+        "issuer": { "type": "string" },
+        "reference": { "type": "string" },
+        "reviewStatus": { "enum": ["not_reviewed", "reviewed", "conflict", "insufficient"] },
+        "reviewerRole": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assetReference", "kind", "custodian", "rawPayloadStoredByPerpetuity"],
+      "properties": {
+        "assetReference": { "type": "string" },
+        "kind": { "enum": ["likeness", "voice", "performance", "scan", "rig", "model", "derived_asset", "mixed"] },
+        "custodian": { "type": "string" },
+        "provenanceReference": { "type": "string" },
+        "rawPayloadStoredByPerpetuity": { "const": false }
+      }
+    },
+    "requestedUse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose", "context", "media", "territories", "termStart", "termEnd", "transformations", "prohibitedUses"],
+      "properties": {
+        "purpose": { "type": "string" },
+        "context": { "type": "string" },
+        "media": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+        "territories": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+        "termStart": { "type": "string", "format": "date" },
+        "termEnd": { "type": "string", "format": "date" },
+        "transformations": { "type": "array", "items": { "type": "string" } },
+        "prohibitedUses": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "agreementReferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reference", "type", "effectiveDate"],
+        "properties": {
+          "reference": { "type": "string" },
+          "type": { "type": "string" },
+          "effectiveDate": { "type": "string", "format": "date" },
+          "relevantSections": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["decision", "actorRole", "timestamp", "packetVersion", "basis"],
+        "properties": {
+          "decision": { "enum": ["approve", "approve_with_conditions", "reject", "return_for_changes"] },
+          "actorRole": { "type": "string" },
+          "actorReference": { "type": "string" },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "packetVersion": { "type": "string" },
+          "basis": { "type": "string" },
+          "conditions": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "vendors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["vendorReference", "role", "instructionVersion", "acknowledgementStatus"],
+        "properties": {
+          "vendorReference": { "type": "string" },
+          "role": { "type": "string" },
+          "instructionVersion": { "type": "string" },
+          "acknowledgementStatus": { "enum": ["not_sent", "sent", "acknowledged", "exception_raised"] },
+          "accessExpiresAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "compensationReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "agreementReference": { "type": "string" },
+        "triggerReferences": { "type": "array", "items": { "type": "string" } },
+        "status": { "enum": ["not_applicable", "pending", "triggered", "confirmed", "disputed"] }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policyReference", "reviewDate", "dispositionAction"],
+      "properties": {
+        "policyReference": { "type": "string" },
+        "reviewDate": { "type": "string", "format": "date" },
+        "dispositionAction": { "enum": ["delete", "return", "retain_under_exception", "custodian_managed"] },
+        "exceptionReference": { "type": "string" }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["eventType", "actorRole", "timestamp", "packetVersion"],
+        "properties": {
+          "eventType": { "type": "string" },
+          "actorRole": { "type": "string" },
+          "actorReference": { "type": "string" },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "packetVersion": { "type": "string" },
+          "reason": { "type": "string" },
+          "evidenceReference": { "type": "string" }
+        }
+      }
+    },
+    "closeout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actualUseSummary": { "type": "string" },
+        "exceptionReferences": { "type": "array", "items": { "type": "string" } },
+        "vendorDispositionConfirmed": { "type": "boolean" },
+        "compensationEventReviewed": { "type": "boolean" },
+        "closedByRole": { "type": "string" },
+        "closedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

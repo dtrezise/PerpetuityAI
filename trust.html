@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Perpetuity AI trust, privacy, security, and data-governance posture for the private-pilot stage." />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://dtrezise.github.io/PerpetuityAI/trust.html" />
+    <title>Trust and security posture — Perpetuity AI</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="interior-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell" id="top">
+      <header class="site-header" data-header>
+        <a class="brand" href="./" aria-label="Perpetuity AI home"><span class="brand-mark" aria-hidden="true"><span>P</span></span><span class="brand-name">Perpetuity <em>AI</em></span></a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav><a href="./#product">Product</a><a href="./#workflow">Workflow</a><a href="trust.html" aria-current="page">Trust</a><a href="evidence.html">Evidence</a><a href="pilot.html">Pilot</a></nav>
+        <a class="header-status" href="pilot.html"><span aria-hidden="true"></span> Private pilot</a>
+      </header>
+
+      <main id="main">
+        <header class="interior-hero section">
+          <p class="eyebrow light"><span>01</span> Trust posture</p>
+          <h1>Protect the person.<br /><em>Minimize the blast radius.</em></h1>
+          <p>
+            This page states the intended security and privacy posture for a pre-production private pilot.
+            It distinguishes design commitments from controls that still require implementation and independent assessment.
+          </p>
+          <div class="status-banner"><strong>Current status</strong><span>No production platform, formal certification, or independent security assessment is claimed.</span></div>
+        </header>
+
+        <section class="detail-section section" aria-labelledby="boundary-title">
+          <div class="detail-heading"><p class="eyebrow"><span>02</span> System boundary</p><h2 id="boundary-title">A control plane, not an asset plane.</h2></div>
+          <div class="plane-diagram" role="img" aria-label="Four system planes showing people and contracts, Perpetuity authorization operations, custodian-held assets, and evidence exports">
+            <div><span>AUTHORITY PLANE</span><strong>People, representatives, contracts, counsel</strong></div>
+            <i aria-hidden="true">↓</i>
+            <div class="active-plane"><span>CONTROL PLANE</span><strong>Requests, decisions, instructions, exceptions</strong></div>
+            <div class="split-planes">
+              <div><span>ASSET PLANE</span><strong>Protected assets remain with approved custodians</strong></div>
+              <div><span>EVIDENCE PLANE</span><strong>Versioned records and reviewable exports</strong></div>
+            </div>
+          </div>
+          <p class="section-note ink-note">
+            The pilot should store only what is necessary to operate and evidence the workflow. Any proposal to
+            centralize raw biometric, performance, or model files requires a separate necessity test, threat model,
+            legal review, retention rule, and buyer approval.
+          </p>
+        </section>
+
+        <section class="detail-section dark-detail section" aria-labelledby="principles-title">
+          <div class="detail-heading"><p class="eyebrow light"><span>03</span> Design commitments</p><h2 id="principles-title">The minimum credible posture.</h2></div>
+          <div class="control-grid">
+            <article><span>01</span><h3>Data minimization</h3><p>Collect the smallest data set required for a named purpose, project, and retention period.</p></article>
+            <article><span>02</span><h3>Human authorization</h3><p>Automated systems may organize evidence; they do not independently grant consent or determine legal rights.</p></article>
+            <article><span>03</span><h3>Role and project isolation</h3><p>Access should be limited to approved roles, projects, fields, and time windows with attributable changes.</p></article>
+            <article><span>04</span><h3>Secure handoff</h3><p>Instructions and asset references should be transmitted through approved channels with acknowledgement and exception handling.</p></article>
+            <article><span>05</span><h3>Retention and disposition</h3><p>Every data class needs an owner, retention basis, disposition event, and exception path.</p></article>
+            <article><span>06</span><h3>Incident readiness</h3><p>Pilots require named escalation contacts, containment steps, evidence preservation, and notification decision paths.</p></article>
+          </div>
+        </section>
+
+        <section class="detail-section section" aria-labelledby="threats-title">
+          <div class="detail-heading"><p class="eyebrow"><span>04</span> Priority threats</p><h2 id="threats-title">Design against foreseeable misuse.</h2></div>
+          <div class="metric-table threat-table" role="table" aria-label="Priority threat model">
+            <div role="row"><strong role="columnheader">Threat</strong><strong role="columnheader">Initial response</strong></div>
+            <div role="row"><span role="cell">Unauthorized requester or representative</span><span role="cell">Independent authority checks, conflict flags, separation of duties, and documented reviewer decision.</span></div>
+            <div role="row"><span role="cell">Use outside approved scope</span><span role="cell">Explicit boundaries, versioned instructions, acknowledgements, exception routing, and closeout confirmation.</span></div>
+            <div role="row"><span role="cell">Sensitive-data overcollection</span><span role="cell">Field-level necessity review, references instead of payloads, retention limits, and deletion verification.</span></div>
+            <div role="row"><span role="cell">Record tampering or ambiguity</span><span role="cell">Append-only event history, version identifiers, timestamps, attributable actions, and signed exports where justified.</span></div>
+            <div role="row"><span role="cell">Cross-project or vendor leakage</span><span role="cell">Tenant and project isolation, least privilege, secure delivery, vendor diligence, and revocation of access.</span></div>
+            <div role="row"><span role="cell">False confidence in provenance</span><span role="cell">Separate technical integrity from legal truth and preserve the issuer and basis of every authority assertion.</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section section" aria-labelledby="roadmap-title">
+          <div class="detail-heading"><p class="eyebrow"><span>05</span> Assurance roadmap</p><h2 id="roadmap-title">Controls before claims.</h2></div>
+          <ol class="assurance-list">
+            <li><span>BEFORE LIVE DATA</span><p>Data inventory, threat model, access matrix, approved tools, incident path, retention schedule, vendor review, participant notice, and counsel-reviewed pilot terms.</p></li>
+            <li><span>BEFORE REPEAT PILOTS</span><p>Centralized identity, multifactor authentication, environment separation, structured audit events, backup and restoration tests, secure-development checks, and documented deletion tests.</p></li>
+            <li><span>BEFORE ENTERPRISE CLAIMS</span><p>Independent penetration testing, formal security and privacy program, control evidence, contractual subprocessors, response exercises, and an appropriate external assurance path.</p></li>
+          </ol>
+        </section>
+
+        <section class="detail-section callout-section section" aria-labelledby="report-title">
+          <p class="eyebrow"><span>06</span> Responsible disclosure</p>
+          <h2 id="report-title">Report a security concern.</h2>
+          <p>Please do not include biometric files, credentials, confidential contracts, or personal data in an initial report. Describe the affected surface, reproduction steps, and potential impact.</p>
+          <a class="button button-dark" href="mailto:dan@dantrezise.com?subject=Perpetuity%20AI%20security%20report">Send a security report <span aria-hidden="true">↗</span></a>
+          <small>This preview does not offer a bug bounty. Good-faith reports will be acknowledged when received.</small>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand"><span class="brand-mark" aria-hidden="true"><span>P</span></span><div><strong>Perpetuity AI</strong><small>Digital-replica authorization operations</small></div></div>
+        <nav class="footer-nav" aria-label="Footer navigation"><a href="./">Home</a><a href="pilot.html">Pilot</a><a href="evidence.html">Evidence</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+        <div class="footer-meta"><p>Posture updated · 7 October 2026</p><p class="disclaimer">No certification claimed</p></div>
+      </footer>
+    </div>
+  </body>
+</html>
